@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 33px 9%;
+    background: transparent;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 900;
+    font-family: 'Caveat', cursive;
+    color: #6747f3;
+}
+
+.navlist {
+    display: flex;
+}
+
+.navlist a {
+    color: #31304D;
+    margin-left: 60px;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: all .55s ease;
+    text-decoration: none;
+}
+
+.navlist a:hover {
+    border-bottom: 2px solid #6747f3;
+}
+
+#menu-icon {
+    color: rgb(0, 0, 0);
+    font-size: 35px;
+    z-index: 10001;
+    cursor: pointer;
+    display: none;
+}
+
+.hero {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    background: #fffcf7;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+section{
+    padding: 0 19%;
+}
+
+.hero-text h1 {
+    color: #4b3b94;
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.8em;
+    max-width: 500px;
+}
+
+.hero-text p{
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.8em;
+    color: #31304D;
+    letter-spacing: -1px;
+}
+
+.hero-text a {
+    display: inline-block;
+    color: #31304D;
+    background: white;
+    border: 1px solid #4b3b94;
+    padding: 12px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .55s ease;
+    margin-top: 20px;
+}
+
+.hero-text a:hover {
+    background: #6747f3;
+    transform: translateX(4px);
+    color: white;
+}
+
+.hero-text .hero-text-contato {
+    background: #31304D;
+    border: 1px solid white;
+    color: white;
+    margin-left: 12px;
+}
+
+.hero-text .hero-text-contato:hover {
+    background: #6747f3;
+    color: #fff;
+    border: 1px solid #4b3b94;
+}
+
+.icons {
+    position: absolute;
+    top: 50%;
+    padding: 0 9%;
+    transform: translateY(-50%);
+}
+
+.icons a{
+    display: block;
+    margin: 26px 0;
+    border: solid 1.4px #4b3b94;
+    border-radius: 20px;
+    transition: all .55s ease;
+    text-align: center;
+    padding: 8px;
+    font-size: 18px;
+    color: #4b3b94;
+}
+
+.icons a:hover {
+    color: white;
+    transform: translateY(-5px);
+    background: #6747f3;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 6%;
+    right: 9%;
+}
+
+.scroll-down i {
+    display: block;
+    padding: 12px;
+    font-size: 25px;
+    color: #fff;
+    background: #31304D;
+    border-radius: 30px;
+    transition: all .50s;
+}
+
+.scroll-down i:hover {
+    transform: translateY(-5px);
+}
