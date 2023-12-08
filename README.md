@@ -16,7 +16,7 @@
 
 ### Preview 
 
-[Portfólio](https://web-cripto.vercel.app/)
+[Portfólio](https://portfolio-it-italo-afr.vercel.app/)
 
 
 ### Contato
