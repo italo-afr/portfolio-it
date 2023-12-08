@@ -16,9 +16,10 @@
  <!------>
  <link href="./CSS/style.css" rel="stylesheet">
  <link href="./CSS/responsive.css" rel="stylesheet">
+ <link href="./CSS/cards.css" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="nav">
         <a href="#" class="logo">Italo</a>
         <ul class="navlist">
             <li><a href="#">Início</a></li>
@@ -48,14 +49,39 @@
         <a href="https://www.instagram.com/apenaseditando_/" class="ri-instagram-line instagram" target="_blank"></a>
     </div>
     <div class="scroll-down">
-        <a href="#"><i class="ri-arrow-drop-down-fill"></i></a>
+        <a href=""><i class="ri-arrow-drop-up-fill"></i></a>
     </div>
 
-    <section>
+    <section class="card-container">
+        <div class="card">
+            <img src="./Img/sistema-bancario.png" alt="Sistema Bancário">
+            <div class="card-content">
+                <h3>Sistema Bancário</h3>
+                <p>Um site relacionado a organização financeira para empresas.</p>
+                <a href="#" class="card-btn">Ver mais</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./Img/web-crypto.png" alt="Web rypto">
+            <div class="card-content">
+                <h3>Sistema Bancário</h3>
+                <p>Cryptchain é um site de criptomoeda totalmente responsivo, responsivo para todos os dispositivos, foi criado usando HTML, CSS e JavaScript.</p>
+                <a href="#" class="card-btn">Ver mais</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="./Img/calculadora.png" alt="Calculadora">
+            <div class="card-content">
+                <h3>Calculadora</h3>
+                <p>Montando uma calculadora em react para aprimorar os estudos de react.</p>
+                <a href="#" class="card-btn">Ver mais</a>
+            </div>
+        </div>
         
     </section>
 
     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="./JScript/main.js"></script>
 </body>
 </html>
