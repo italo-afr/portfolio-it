@@ -14,9 +14,10 @@ const sr = ScrollReveal({
 });
 
 sr.reveal('.hero-text', { delay: 200, origin: 'top' });
-sr.reveal('.hero-img', { delay: 450, origin: 'top' });
-sr.reveal('.icons', { delay: 500, origin: 'left' });
-sr.reveal('.scroll-down', { delay: 500, origin: 'bottom' });
+sr.reveal('.hero-img', { delay: 350, origin: 'top' });
+sr.reveal('.icons', { delay: 450, origin: 'left' });
+sr.reveal('.card', { delay: 200, origin: 'bottom' });
+sr.reveal('.about-content', { delay: 200, origin: 'left' });
 
 document.addEventListener("DOMContentLoaded", () => {
     const scrollDownElement = document.querySelector(".scroll-down");

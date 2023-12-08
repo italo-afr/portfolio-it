@@ -97,6 +97,17 @@
     .navlist.open {
         right: 0;
     }
+    .about-content {
+        width: 100%; 
+        padding: 60px 20px;
+    }
+    .about {
+        width: 80%; 
+        max-width: 600px; 
+        margin: 0 auto; /* Para centralizar o bloco */
+        padding: 20px;
+    }
+    
     .footer-top .container {
         flex-direction: column;
         align-items: center;
@@ -129,6 +140,21 @@
         height: 5%;
         margin-left: 25%;
         margin-bottom: 0px;
+    }
+    .about {
+        width: 100%;
+        max-width: 100%; 
+        padding: 20px;
+    }
+
+    .about h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .about p {
+        font-size: 14px;
+        line-height: 24px;
     }
     .footer-title {
         font-size: 1.8rem;
