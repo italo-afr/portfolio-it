@@ -3,7 +3,7 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Portifólio</title>
+ <title>Portfólio</title>
  <link href="./CSS/reset.css" rel="stylesheet">
  <!-- box-icon -->
  <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet" >
@@ -17,8 +17,10 @@
  <link href="./CSS/style.css" rel="stylesheet">
  <link href="./CSS/responsive.css" rel="stylesheet">
  <link href="./CSS/cards.css" rel="stylesheet">
+ <link href="./CSS/rodape.css" rel="stylesheet">
 </head>
 <body>
+    <!-- #Navbar  -->
     <header class="nav">
         <a href="#" class="logo">Italo</a>
         <ul class="navlist">
@@ -28,6 +30,7 @@
         </ul>
         <div class="bx bx-menu" id="menu-icon"></div>
     </header>
+    <!-- #Hero  -->
     <section class="hero">
         <div class="hero-text">
             <p>Olá, eu sou</p>
@@ -48,10 +51,10 @@
         <a href="https://www.linkedin.com/in/italoafr/" class="ri-linkedin-fill linkedin" target="_blank"></a>
         <a href="https://www.instagram.com/apenaseditando_/" class="ri-instagram-line instagram" target="_blank"></a>
     </div>
-    <div class="scroll-down">
+    <div class="scroll-down hidden">
         <a href=""><i class="ri-arrow-drop-up-fill"></i></a>
     </div>
-
+    <!-- #Cards  -->
     <section class="card-container">
         <div class="card">
             <img src="./Img/sistema-bancario.png" alt="Sistema Bancário">
@@ -79,9 +82,63 @@
         </div>
         
     </section>
+    <!-- #Footer  -->
+        <footer class="footer">
+            <div class="footer-top" data-section>
+            <div class="container">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="./Img/perfil-portifolio.png" width="80" height="80" alt="Perfil" />
+                        Portfólio
+                    </a>
+                    </div>
+            
+                        <ul class="footer-list">
+                        <li>
+                            <p class="footer-list-title">Serviços</p>
+                        </li>
+                
+                        <li>
+                            <a href="#" class="footer-link">Planos</a>
+                        </li>
+                
+                        <li>
+                            <a href="#" class="footer-link">Exemplo</a>
+                        </li>
+                        </ul>
+                
+                        <ul class="footer-list">
+                        <li>
+                            <p class="footer-list-title">Ajuda</p>
+                        </li>
+                
+                        <li>
+                            <a href="#" class="footer-link">Central de ajuda</a>
+                        </li>
+                
+                        <li>
+                            <a href="#" class="footer-link">Feedback do usuário</a>
+                        </li>
+                        </ul>
+                
+                        <ul class="footer-list">
+                        <li>
+                            <p class="footer-list-title">Sobre nós</p>
+                        </li>
+                
+                        <li>
+                            <a href="#" class="footer-link">Sobre o sistema</a>
+                        </li>
+                
+                        <li>
+                            <a href="#" class="footer-link">Verificação</a>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+        </footer>
 
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="./JScript/main.js"></script>
 </body>
 </html>

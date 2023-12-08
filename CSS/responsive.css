@@ -67,6 +67,7 @@
     .scroll-down{
         display: none;
     }
+
 }
 
 @media (max-width: 990px) {
@@ -96,6 +97,13 @@
     .navlist.open {
         right: 0;
     }
+    .footer-top .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-list {
+        text-align: center;
+    }
 }
 
 @media (max-width: 680px) {
@@ -121,5 +129,20 @@
         height: 5%;
         margin-left: 25%;
         margin-bottom: 0px;
+    }
+    .footer-title {
+        font-size: 1.8rem;
+    }
+
+    .footer-list-title {
+        font-size: 1.2rem;
+    }
+    .footer-list {
+        text-align: center;
+    }
+    
+    .footer-list,
+    .footer-list-title {
+        width: 100%;
     }
 }
