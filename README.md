@@ -1,24 +1,49 @@
 <div align="center">
-  
-[GitHub](https://github.com/Italo-Afr?tab=repositories)
-[Linkedin](https://www.linkedin.com/in/italoafr/)
 
-  <br />
-  <br />
+# 🌐 Meu Portfólio Pessoal
 
-  <h2 align="center">Meu portfólio - Website <br/>
-
-  Contém todos os meus projetos, totalmente responsivo, <br />Responsivo para todos os dispositivos, foi criado usando HTML, CSS e JavaScript.
+[🔗 GitHub](https://github.com/Italo-Afr?tab=repositories) • [💼 LinkedIn](https://www.linkedin.com/in/italoafr/)
 
 </div>
 
-<br />
+---
 
-### Preview 
+## 📁 Sobre o Projeto
 
-[Portfólio](https://portfolio-it-italo-afr.vercel.app/)
+Este é o meu portfólio online onde compartilho os principais projetos que desenvolvi. O site foi criado com foco em **responsividade**, garantindo uma ótima experiência em qualquer dispositivo (desktop, tablet ou celular).
 
+> ✅ Desenvolvido com: **HTML**, **CSS** e **JavaScript**  
+> 🎯 Foco: Simplicidade, performance e design limpo
 
-### Contato
+---
 
-Se você quiser entrar em contato comigo, pode me encontrar no [Linkedin](https://www.linkedin.com/in/italoafr/).
+## 📸 Preview
+
+Acesse a versão online do portfólio clicando no link abaixo:
+
+👉 [**Visualizar Portfólio**](https://portfolio-it-italo-afr.vercel.app/)
+
+---
+
+## 🧩 Funcionalidades
+
+- Layout 100% responsivo
+- Navegação intuitiva
+- Cards com projetos detalhados
+- Integração com redes sociais
+- Botão para download do currículo
+
+---
+
+## 📬 Contato
+
+Se quiser conversar sobre alguma oportunidade ou trocar uma ideia, entre em contato comigo:
+
+- 💼 [LinkedIn](https://www.linkedin.com/in/italoafr/)
+- 📧 Email: **italoafr1@gmail.com**
+
+---
+
+<div align="center">
+Feito por Ítalo Amorim
+</div>
