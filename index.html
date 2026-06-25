@@ -1,194 +1,600 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Portfólio</title>
- <link href="./CSS/reset.css" rel="stylesheet">
- <!-- box-icon -->
- <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet" >
- <!-- remix-icon -->
- <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
- <!-- google fonts -->
- <link href="https://fonts.googleapis.com"> 
- <link href="https://fonts.gstatic.com" crossorigin rel="preconnect" rel="preconnect"> 
- <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Montserrat:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
- <!------>
- <link href="./CSS/style.css" rel="stylesheet">
- <link href="./CSS/responsive.css" rel="stylesheet">
- <link href="./CSS/cards.css" rel="stylesheet">
- <link href="./CSS/sobre.css" rel="stylesheet">
- <link href="./CSS/rodape.css" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ítalo Freire — Desenvolvedor Full-Stack & DevOps</title>
+<meta name="description" content="Ítalo de Amorim Freire — Desenvolvedor Full-Stack & DevOps Engineer. React, TypeScript, .NET, Flutter, GCP. Baseado em Serra Negra, SP. Disponível para remoto." />
+<meta property="og:title" content="Ítalo Freire — Desenvolvedor Full-Stack & DevOps" />
+<meta property="og:description" content="Construo aplicações web/mobile e pipelines de release. React · TypeScript · .NET · Flutter · GCP." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F5F6F8;
+    --surface:#FFFFFF;
+    --ink:#15181D;
+    --ink-soft:#3A4049;
+    --muted:#6B7480;
+    --line:#E4E7EB;
+    --line-soft:#EDEFF2;
+    --accent:#0D9488;
+    --accent-deep:#0B5F57;
+    --accent-soft:#E6F4F1;
+    --dot:#14B8A6;
+    --display:"Space Grotesk", system-ui, sans-serif;
+    --body:"Inter", system-ui, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, monospace;
+    --maxw:760px;
+    --r:16px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--accent);color:#fff;}
+
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 22px;
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:saturate(160%) blur(10px);
+    background:color-mix(in srgb, var(--bg) 82%, transparent);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .topbar .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:58px;
+  }
+  .brand{
+    font-family:var(--display);font-weight:600;letter-spacing:-.01em;
+    display:flex;align-items:center;gap:9px;font-size:.98rem;
+  }
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--dot);
+    box-shadow:0 0 0 4px var(--accent-soft);}
+  .nav{display:flex;gap:26px;font-size:.9rem;color:var(--muted);font-weight:500;}
+  .nav a{transition:color .2s;}
+  .nav a:hover{color:var(--ink);}
+  @media(max-width:560px){.nav{display:none;}}
+
+  /* ---------- shared eyebrow chip (the signature) ---------- */
+  .chip{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:.72rem;font-weight:500;
+    letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent-deep);
+    background:var(--accent-soft);
+    border:1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+    padding:6px 11px;border-radius:999px;
+  }
+  .chip .led{width:7px;height:7px;border-radius:50%;background:var(--dot);
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--dot) 22%, transparent);}
+
+  /* ---------- hero ---------- */
+  .hero{padding:74px 0 18px;text-align:center;}
+  .avatar{
+    width:104px;height:104px;border-radius:50%;margin:0 auto 26px;
+    display:grid;place-items:center;
+    font-family:var(--display);font-weight:600;font-size:2.1rem;color:#fff;
+    background:linear-gradient(150deg, var(--accent) 0%, var(--accent-deep) 100%);
+    box-shadow:0 0 0 6px #fff, 0 0 0 7px var(--line), 0 14px 30px -12px rgba(13,148,136,.5);
+    overflow:hidden;
+  }
+  .avatar img{width:100%;height:100%;object-fit:cover;}
+  .hello{color:var(--muted);font-size:1rem;margin:0 0 6px;}
+  .hero h1{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(2.6rem,7.5vw,4.6rem);line-height:1.02;
+    letter-spacing:-.03em;margin:0 0 18px;
+  }
+  .hero h1 .wave{display:inline-block;transform-origin:75% 75%;}
+  .role{
+    font-size:1.12rem;color:var(--ink-soft);max-width:540px;margin:0 auto;
+    font-weight:450;
+  }
+  .role b{color:var(--ink);font-weight:600;}
+  .meta-line{
+    margin-top:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+    font-family:var(--mono);font-size:.78rem;color:var(--muted);
+  }
+  .meta-line span{display:inline-flex;align-items:center;gap:7px;}
+  .meta-line .led{width:6px;height:6px;border-radius:50%;background:var(--dot);}
+
+  /* ---------- metric strip ---------- */
+  .metrics{
+    margin:42px 0 6px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+  }
+  .metric{
+    background:var(--surface);border:1px solid var(--line);border-radius:13px;
+    padding:16px 12px;text-align:center;
+  }
+  .metric .num{font-family:var(--display);font-weight:700;font-size:1.5rem;letter-spacing:-.02em;}
+  .metric .num small{font-size:1rem;color:var(--accent);font-weight:600;}
+  .metric .lab{font-family:var(--mono);font-size:.64rem;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--muted);margin-top:5px;line-height:1.35;}
+  @media(max-width:560px){.metrics{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- companies row ---------- */
+  .where{margin:46px 0;text-align:center;}
+  .where p{color:var(--muted);margin:0 0 14px;font-size:.98rem;}
+  .companies{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;}
+  .co{
+    font-family:var(--display);font-weight:500;font-size:.92rem;
+    border:1px solid var(--line);background:var(--surface);
+    padding:8px 15px;border-radius:999px;color:var(--ink-soft);
+  }
+  .co em{font-style:normal;color:var(--muted);font-size:.78rem;}
+
+  /* ---------- sections ---------- */
+  section{padding:54px 0;}
+  .sec-head{margin-bottom:26px;}
+  .sec-head h2{
+    font-family:var(--display);font-weight:600;letter-spacing:-.02em;
+    font-size:clamp(1.55rem,4vw,2.1rem);margin:.55rem 0 0;
+  }
+
+  /* ---------- projects ---------- */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:640px){.grid{grid-template-columns:1fr;}}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:22px 22px 20px;display:flex;flex-direction:column;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent) 40%,var(--line));
+    box-shadow:0 22px 40px -26px rgba(13,148,136,.5);}
+  .card .top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;}
+  .card .ico{
+    width:40px;height:40px;border-radius:11px;display:grid;place-items:center;
+    background:var(--accent-soft);color:var(--accent-deep);
+    font-family:var(--mono);font-weight:600;font-size:.92rem;border:1px solid color-mix(in srgb,var(--accent) 18%,transparent);
+  }
+  .card .status{font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--accent-deep);display:inline-flex;align-items:center;gap:6px;}
+  .card .status .led{width:6px;height:6px;border-radius:50%;background:var(--dot);
+    box-shadow:0 0 0 3px color-mix(in srgb,var(--dot) 22%,transparent);}
+  .card h3{font-family:var(--display);font-weight:600;font-size:1.18rem;margin:0 0 7px;letter-spacing:-.01em;}
+  .card p{margin:0 0 16px;color:var(--ink-soft);font-size:.96rem;flex:1;}
+  .stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+  .stack span{font-family:var(--mono);font-size:.68rem;color:var(--muted);
+    border:1px solid var(--line);border-radius:6px;padding:3px 7px;background:var(--bg);}
+  .links{display:flex;gap:9px;}
+  .btn{
+    font-family:var(--body);font-size:.83rem;font-weight:600;
+    border-radius:9px;padding:8px 14px;display:inline-flex;align-items:center;gap:7px;
+    transition:background .2s,color .2s,border-color .2s;
+  }
+  .btn.solid{background:var(--ink);color:#fff;}
+  .btn.solid:hover{background:var(--accent-deep);}
+  .btn.ghost{border:1px solid var(--line);color:var(--ink-soft);}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent-deep);}
+  .btn svg{width:14px;height:14px;}
+
+  /* ---------- about ---------- */
+  .about p{font-size:1.04rem;color:var(--ink-soft);margin:0 0 16px;max-width:640px;}
+  .about p b{color:var(--ink);}
+
+  /* ---------- experience accordion ---------- */
+  .xp-item{border-bottom:1px solid var(--line);}
+  .xp-item:first-child{border-top:1px solid var(--line);}
+  .xp-btn{
+    width:100%;background:none;border:none;cursor:pointer;text-align:left;
+    padding:20px 4px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+    font-family:var(--body);color:var(--ink);
+  }
+  .xp-btn .l .r{font-family:var(--display);font-weight:600;font-size:1.06rem;letter-spacing:-.01em;}
+  .xp-btn .l .c{color:var(--muted);font-size:.9rem;margin-top:2px;}
+  .xp-btn .when{font-family:var(--mono);font-size:.72rem;color:var(--muted);white-space:nowrap;}
+  .xp-btn .plus{margin-left:6px;color:var(--accent);transition:transform .3s;flex-shrink:0;
+    font-family:var(--display);font-weight:500;font-size:1.3rem;line-height:1;}
+  .xp-item.open .plus{transform:rotate(45deg);}
+  .xp-panel{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+  .xp-panel ul{margin:0;padding:0 4px 22px 4px;list-style:none;}
+  .xp-panel li{position:relative;padding:6px 0 6px 22px;color:var(--ink-soft);font-size:.96rem;}
+  .xp-panel li::before{content:"▸";position:absolute;left:0;color:var(--accent);font-size:.85rem;top:7px;}
+  @media(max-width:520px){
+    .xp-btn{flex-wrap:wrap;}
+    .xp-btn .when{order:3;flex-basis:100%;}
+  }
+
+  /* ---------- stack groups ---------- */
+  .stacks{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:560px){.stacks{grid-template-columns:1fr;}}
+  .sgroup{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:16px 18px;}
+  .sgroup h4{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent-deep);margin:0 0 11px;}
+  .sgroup .tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .sgroup .tags span{font-size:.84rem;color:var(--ink-soft);border:1px solid var(--line-soft);
+    background:var(--bg);border-radius:7px;padding:4px 9px;}
+
+  /* ---------- education ---------- */
+  .edu{display:flex;flex-direction:column;gap:12px;}
+  .edu .row{display:flex;gap:14px;align-items:baseline;justify-content:space-between;
+    border-bottom:1px dashed var(--line);padding-bottom:12px;}
+  .edu .row:last-child{border-bottom:none;}
+  .edu .row .t{font-weight:600;}
+  .edu .row .s{color:var(--muted);font-size:.92rem;}
+  .edu .row .y{font-family:var(--mono);font-size:.74rem;color:var(--muted);white-space:nowrap;}
+  .certs{margin-top:14px;display:flex;flex-wrap:wrap;gap:7px;}
+  .certs span{font-family:var(--mono);font-size:.7rem;color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:var(--surface);}
+
+  /* ---------- contact / footer ---------- */
+  .contact{text-align:center;padding:60px 0;}
+  .contact h2{font-family:var(--display);font-weight:700;letter-spacing:-.02em;
+    font-size:clamp(1.8rem,5vw,2.6rem);margin:0 0 10px;}
+  .contact p{color:var(--muted);margin:0 auto 26px;max-width:440px;}
+  .contact .cta-row{display:flex;gap:11px;justify-content:center;flex-wrap:wrap;}
+  .cta{
+    display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.95rem;
+    padding:13px 20px;border-radius:11px;transition:all .2s;
+  }
+  .cta.primary{background:var(--accent-deep);color:#fff;}
+  .cta.primary:hover{background:var(--ink);}
+  .cta.line{border:1px solid var(--line);color:var(--ink);background:var(--surface);}
+  .cta.line:hover{border-color:var(--accent);color:var(--accent-deep);}
+  .cta svg{width:17px;height:17px;}
+  footer{border-top:1px solid var(--line-soft);padding:26px 0 40px;text-align:center;
+    color:var(--muted);font-size:.84rem;}
+  footer .mono{font-family:var(--mono);font-size:.74rem;}
+
+  /* ---------- reveal animation ---------- */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+    .wave{animation:none!important;}
+  }
+  @keyframes wave{0%,60%,100%{transform:rotate(0);}10%,30%{transform:rotate(14deg);}20%{transform:rotate(-8deg);}40%{transform:rotate(10deg);}}
+  .wave{animation:wave 2.6s ease-in-out 1s 2;}
+</style>
 </head>
 <body>
-    <!-- #Navbar  -->
-    <header class="nav">
-        <a href="#" class="logo">Ítalo</a>
-            <ul class="navlist">
-                <li><a href="#">Início</a></li>
-                <li><a href="#card-container">Projetos</a></li>
-                <li><a href="#about-content">Sobre mim</a></li>
-                <li><a href="mailto:italoafr1@gmail.com">Contato</a></li>
-            </ul>
-        <div class="bx bx-menu" id="menu-icon"></div>
-    </header>
-    <!-- #Hero  -->
-    <section class="hero">
-        <div class="hero-text">
-            <p>Olá, eu sou</p>
-            <h1>Italo Amorim</h1>
-            <p>Programador & Designer</p>
-            <div class="hero-text-button">
-                <a href="https://drive.google.com/uc?export=download&id=1TSe5RLa1UTagj4MZ4OIZoVpbE7NFAFJl" target="_blank"><i class="ri-file-list-3-line"></i> Baixar Currículo</a>
-                <a href="mailto:italoafr1@gmail.com" class="hero-text-contato" target="_blank"><i class="ri-mail-unread-line"></i> Contato</a>
-            </div>
-        </div>
-        <div class="hero-img">
-            <img src="./Img/perfil-portifolio.png" alt="Foto de Ítalo Amorim - Desenvolvedor Web">
-        </div>
-    </section>
-    <div class="icons">
-        <a href="https://github.com/italo-afr" class="ri-github-line github" target="_blank"></a>
-        <a href="https://www.linkedin.com/in/italoafr/" class="ri-linkedin-fill linkedin" target="_blank"></a>
-        <a href="https://www.instagram.com/apenaseditando.editor/" class="ri-instagram-line instagram" target="_blank"></a>
-    </div>
-    <div class="scroll-down hidden">
-        <a href=""><i class="ri-arrow-drop-up-fill"></i></a>
-    </div>
-    <!-- #Cards  -->
-    <section class="card-container" id="card-container">
-        <div class="card">
-        <div class="card-image-container">
-            <img src="./Img/encurtador.gif" alt="Projeto Encurtador de URL">
-        </div>
-            <div class="card-content">
-                <h3>Encurtador de URL</h3>
-                <p>Um encurtador de URL funcional construído com .NET, Docker e Supabase para um deploy eficiente.</p>
-                <div class="card-links">
-                    <a href="https://github.com/italo-afr/EncurtadorURL" class="card-btn code" target="_blank"><i class="ri-github-fill"></i> Código</a>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./Img/List.gif" alt="Lista de Tarefas">
-            <div class="card-content">
-                <h3>Lista de Tarefas</h3>
-                <p>Um sistema completo de gestão de tarefas desenvolvido com React + Supabase, pensado para ser moderno, seguro e escalável.</p>
-                <a href="https://github.com/italo-afr/ListaDeTarefas" class="card-btn code" target="_blank"><i class="ri-github-fill"></i> Código</a>
-                <a href="https://lista-de-tarefas-se28.onrender.com/" class="card-btn" target="_blank"><i class="ri-external-link-line"></i> Ver Demo</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./Img/game-simples.gif" alt="Game Simples">
-            <div class="card-content">
-                <h3>Game simples</h3>
-                <p>Um jogo simples criado com HTML, CSS e JavaScript, inspirado no projeto de Felipe Deschamps.</p>
-                <a href="https://github.com/italo-afr/game-simples" class="card-btn code" target="_blank"><i class="ri-github-fill"></i> Código</a>
-                <a href="https://game-simples.vercel.app/" class="card-btn" target="_blank"><i class="ri-external-link-line"></i> Ver Demo</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./Img/sistema-bancario.png" alt="Sistema Bancário">
-            <div class="card-content">
-                <h3>Sistema Bancário</h3>
-                <p>Um site relacionado a organização financeira para empresas.</p>
-                <a href="https://github.com/italo-afr/sistema-bancario" class="card-btn code" target="_blank"><i class="ri-github-fill"></i> Código</a>
-                <a href="https://sistema-bancario-xi.vercel.app/" class="card-btn" target="_blank"><i class="ri-external-link-line"></i> Ver Demo</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./Img/web-crypto.png" alt="Cryptchain">
-            <div class="card-content">
-                <h3>Cryptchain</h3>
-                <p>Cryptchain é um site de criptomoeda totalmente responsivo, responsivo para todos os dispositivos, foi criado usando HTML, CSS e JavaScript.</p>
-                <a href="https://github.com/italo-afr/web-cripto" class="card-btn code" target="_blank"><i class="ri-github-fill"></i> Código</a>
-                <a href="https://web-cripto.vercel.app/" class="card-btn" target="_blank"><i class="ri-external-link-line"></i> Ver Demo</a>
-            </div>
-        </div>        
-        <div class="card">
-            <img src="./Img/calculadora.png" alt="Calculadora">
-            <div class="card-content">
-                <h3>Calculadora</h3>
-                <p>Montando uma calculadora em react para aprimorar os estudos de react.</p>
-                <a href="https://github.com/italo-afr/calculadora-react" class="card-btn code" target="_blank"><i class="ri-github-fill"></i> Código</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./Img/relogio.png" alt="Relógio">
-            <div class="card-content">
-                <h3>Relógio</h3>
-                <p>Montando uma calculadora em react para aprimorar os estudos de react</p>
-                <a href="https://github.com/italo-afr/RelogioNaWeb" class="card-btn code" target="_blank"><i class="ri-github-fill"></i> Código</a>
-                <a href="https://relogio-web-bay.vercel.app/" class="card-btn" target="_blank"><i class="ri-external-link-line"></i> Ver Demo</a>
-            </div>
-        </div>
-    </section>
-    <!-- #Sobre  -->
-    <section class="about-content" id="about-content">
-        <div class="about">
-            <h2>Sobre mim</h2>
-            <p>Prazer em conhecê-lo, meu nome é <strong>Ítalo!</strong> 🚀<br><br>Sou um entusiasta de tecnologia com dedicação contínua na execução de projetos especializados em desenvolvimento front-end, utilizando as linguagens e frameworks mais relevantes do mercado.<br>                
-                <br>Ao longo da minha jornada como programador, desenvolvi habilidades em design, particularmente focadas em mídias sociais e web design. Minhas habilidades abrangem criação e manipulação de arte, gerenciamento de mídias sociais e design UX. Além disso, tenho sólida experiência em edição de vídeos com foco em motion design. <br>
-                <br>Meu objetivo é fornecer soluções rápidas e práticas para acompanhar as demandas que estão em constante mudança.</p>
-        </div>
-    </section>
-   <!-- #Footer  -->
-        <footer class="footer">
-            <div class="footer-top" data-section>
-            <div class="container">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <img src="./Img/perfil-portifolio.png" width="80" height="80" alt="Perfil" />
-                        Portfólio
-                    </a>
-                    </div>
-            
-                        <ul class="footer-list">
-                        <li>
-                            <p class="footer-list-title">Projetos</p>
-                        </li>
-                
-                        <li>
-                            <a href="https://github.com/italo-afr" class="footer-link" target="_blank">Programação</a>
-                        </li>
-                
-                        <li>
-                            <a href="https://www.instagram.com/apenaseditando.editor/" class="footer-link" target="_blank">Social Media</a>
-                        </li>
-                        </ul>
-                
-                        <ul class="footer-list">
-                        <li>
-                            <p class="footer-list-title">Ajuda</p>
-                        </li>
-                
-                        <li>
-                            <a href="#" class="footer-link">Central de ajuda</a>
-                        </li>
-                
-                        <li>
-                            <a href="https://www.linkedin.com/in/italoafr/" target="_blank" class="footer-link">Feedback do usuário</a>
-                        </li>
-                        </ul>
-                
-                        <ul class="footer-list">
-                        <li>
-                            <p class="footer-list-title">Sobre mim</p>
-                        </li>
-                
-                        <li>
-                            <a href="#" class="footer-link" target="_blank">Sobre</a>
-                        </li>
-                
-                        <li>
-                            <a href="#" class="footer-link" target="_blank">Usuário</a>
-                        </li>
-                        </ul>
-                    </div>
-                </div>
-        </footer>
 
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="./JScript/main.js"></script>
+  <!-- ============ TOP BAR ============ -->
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand"><span class="dot"></span> Ítalo Freire</div>
+      <nav class="nav">
+        <a href="#projetos">Projetos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <!-- Ítalo: troque o monograma por sua foto -> coloque profile.jpg na pasta Img/
+           e descomente a linha <img> abaixo -->
+      <div class="avatar">
+        <!-- <img src="./Img/profile.jpg" alt="Ítalo Freire" /> -->
+        IF
+      </div>
+      <p class="hello">Oi! Eu sou o</p>
+      <h1>Ítalo Freire <span class="wave">👋</span></h1>
+      <p class="role">Construo <b>aplicações web &amp; mobile</b> de ponta a ponta — da arquitetura de banco ao deploy — e estruturo <b>pipelines de release</b> e observabilidade.</p>
+      <div class="meta-line">
+        <span><span class="led"></span> Full-Stack &amp; DevOps</span>
+        <span><span class="led"></span> Serra Negra, SP · Remoto</span>
+        <span><span class="led"></span> PT nativo · EN profissional</span>
+      </div>
+
+      <div class="metrics">
+        <div class="metric"><div class="num">40<small>%</small></div><div class="lab">redução de MTTR</div></div>
+        <div class="metric"><div class="num">3k<small>+</small></div><div class="lab">chamados resolvidos</div></div>
+        <div class="metric"><div class="num">70<small>%</small></div><div class="lab">first-call resolution</div></div>
+        <div class="metric"><div class="num">3<small>+</small></div><div class="lab">anos de experiência</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHERE ============ -->
+  <div class="where reveal">
+    <div class="wrap">
+      <p>Já passei por:</p>
+      <div class="companies">
+        <span class="co">Visual Code <em>· Health Tech</em></span>
+        <span class="co">AUDÁCIA <em>· Soluções Empresariais</em></span>
+        <span class="co">HTM Eletrônica</span>
+        <span class="co">BG Informática</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projetos" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="chip"><span class="led"></span> Hoje, eu construo</span>
+        <h2>Projetos</h2>
+      </div>
+      <div class="grid">
+
+        <article class="card">
+          <div class="top">
+            <div class="ico">{ }</div>
+            <span class="status"><span class="led"></span> Em produção</span>
+          </div>
+          <h3>LabManager</h3>
+          <p>Sistema de gestão para laboratório de prótese dentária, em uso real: dashboard de faturamento (a receber vs. recebido), CRUD de ordens de serviço, alerta de prazos vencidos, sincronização com Google Agenda e geração de PDFs de etiquetas.</p>
+          <div class="stack"><span>React</span><span>TypeScript</span><span>Vite</span><span>Firebase</span><span>Tailwind</span></div>
+          <div class="links">
+            <a class="btn solid" href="https://github.com/italo-afr/lab-manager" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="top">
+            <div class="ico">✓</div>
+            <span class="status"><span class="led"></span> Online</span>
+          </div>
+          <h3>TaskManager</h3>
+          <p>Gerenciador de tarefas full-stack com autenticação, organização por projetos, calendário interativo (mês/semana/dia) e notificações automáticas por e-mail. Segurança por usuário com RLS no Supabase.</p>
+          <div class="stack"><span>React</span><span>TypeScript</span><span>Supabase</span><span>Make.com</span><span>Resend</span></div>
+          <div class="links">
+            <a class="btn solid" href="https://github.com/italo-afr/ListaDeTarefas" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+            <a class="btn ghost" href="https://lista-de-tarefas-se28.onrender.com" target="_blank" rel="noopener">Ver ao vivo</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="top">
+            <div class="ico">#</div>
+            <span class="status"><span class="led"></span> .NET 8</span>
+          </div>
+          <h3>EncurtadorURL</h3>
+          <p>Encurtador de URLs full-stack com API REST pública, geração de códigos únicos e expiração automática de links. Containerizado com Docker e servido atrás de reverse proxy Traefik.</p>
+          <div class="stack"><span>.NET 8</span><span>ASP.NET MVC</span><span>C#</span><span>PostgreSQL</span><span>Docker</span><span>Traefik</span></div>
+          <div class="links">
+            <a class="btn solid" href="https://github.com/italo-afr/EncurtadorURL" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="top">
+            <div class="ico">AI</div>
+            <span class="status"><span class="led"></span> Projeto pessoal</span>
+          </div>
+          <h3>Auditor de Currículos</h3>
+          <p>SaaS que analisa currículos sob 3 lentes (ATS, RH e Técnica), lê PDF/DOCX/TXT, reescreve no método XYZ e busca vagas. A chamada à IA passa por uma Supabase Edge Function como proxy seguro da API.</p>
+          <div class="stack"><span>React</span><span>Vite</span><span>Supabase Edge</span><span>Claude API</span></div>
+          <div class="links">
+            <!-- Ítalo: adicione aqui o link do repositório do Auditor quando publicar -->
+            <a class="btn ghost" href="https://github.com/italo-afr" target="_blank" rel="noopener">Ver no GitHub</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="sobre" class="about reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="chip"><span class="led"></span> Sobre mim</span>
+        <h2>Um pouco da minha história</h2>
+      </div>
+      <p>Sou desenvolvedor com <b>3+ anos em tecnologia</b>. Comecei no suporte de TI corporativo, cuidando da infraestrutura e do dia a dia de 300+ usuários — foi ali que peguei gosto por automação, observabilidade e por resolver problema de raiz.</p>
+      <p>Hoje atuo como <b>Full-Stack &amp; DevOps</b>: construo produtos em React, TypeScript, .NET e Flutter, modelo bancos PostgreSQL com segurança a nível de linha (RLS) e estruturo o ciclo de release de aplicações em GCP e Firebase.</p>
+      <p>Estou concluindo a graduação em <b>Análise e Desenvolvimento de Sistemas</b> (formatura em 2026). Fora do código, treino na academia com a mesma lógica que aplico no trabalho: consistência, progressão e disciplina. Nascido e baseado em <b>Serra Negra, SP</b>. 🇧🇷</p>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experiencia" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="chip"><span class="led"></span> Trajetória</span>
+        <h2>Minha experiência</h2>
+      </div>
+
+      <div class="xp">
+        <div class="xp-item open">
+          <button class="xp-btn">
+            <span class="l"><span class="r">Full-Stack &amp; DevOps · Visual Code</span><span class="c">Health Tech · Remoto</span></span>
+            <span class="when">02/2026 — Atual</span>
+            <span class="plus">+</span>
+          </button>
+          <div class="xp-panel">
+            <ul>
+              <li>Desenvolvo aplicações full-stack integradas a PostgreSQL (Supabase), com 6+ stored procedures, triggers e views agregadas para regras de negócio.</li>
+              <li>Estruturei camada de segurança com Row Level Security (RLS), isolando dados entre 4 tipos de usuário via políticas por role e funções SECURITY DEFINER.</li>
+              <li>Configuro infraestrutura cloud em GCP e Firebase e padronizo o ciclo de release, com migração para CI/CD em GitHub Actions em andamento.</li>
+              <li>Estabeleci observabilidade com Grafana e estratégia de 3 ambientes (dev → staging → produção) com branch strategy.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="xp-item">
+          <button class="xp-btn">
+            <span class="l"><span class="r">Full-Stack &amp; Automação · AUDÁCIA</span><span class="c">Soluções Empresariais · Remoto</span></span>
+            <span class="when">10/2025 — 12/2025</span>
+            <span class="plus">+</span>
+          </button>
+          <div class="xp-panel">
+            <ul>
+              <li>Projetei integrações entre 5+ sistemas (LinkedIn Lead Gen, HubSpot, Sender.net, ManyChat, WhatsApp API) via Zapier e webhooks, com entrega de leads em tempo real.</li>
+              <li>Configurei infraestrutura de e-mail marketing com autenticação de domínio (SPF, DKIM, DMARC), elevando entregabilidade e protegendo a reputação do domínio.</li>
+              <li>Estruturei stack de chatbots (Instagram + WhatsApp) e tags de rastreamento com eventos de conversão personalizados.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="xp-item">
+          <button class="xp-btn">
+            <span class="l"><span class="r">Técnico de Suporte em TI · HTM Eletrônica</span><span class="c">Amparo, SP · Presencial</span></span>
+            <span class="when">01/2024 — 03/2025</span>
+            <span class="plus">+</span>
+          </button>
+          <div class="xp-panel">
+            <ul>
+              <li>Implementei dashboards de monitoramento em Grafana, transformando uma operação reativa em proativa e reduzindo o MTTR em 40%.</li>
+              <li>Resolvi 150+ chamados/mês (3.000+ no total) com 70% de first-call resolution, atuando em hardware, redes e sistemas corporativos.</li>
+              <li>Criei scripts em PowerShell e Bash para tarefas repetitivas, eliminando 5h/semana de trabalho manual.</li>
+              <li>Administrei servidores Windows Server e Linux, com VPN, firewall e políticas de acesso para 300+ usuários.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="xp-item">
+          <button class="xp-btn">
+            <span class="l"><span class="r">Especialista em Suporte de TI · BG Informática</span><span class="c">Vinhedo, SP · Presencial</span></span>
+            <span class="when">08/2022 — 03/2023</span>
+            <span class="plus">+</span>
+          </button>
+          <div class="xp-panel">
+            <ul>
+              <li>Diagnostiquei e resolvi problemas de hardware, software e redes, reduzindo o tempo de inatividade dos usuários em 25%.</li>
+              <li>Otimizei o atendimento com ferramentas de acesso remoto (AnyDesk, TeamViewer), aumentando a eficiência do suporte em 30%.</li>
+              <li>Capacitei usuários em Pacote Office, Power BI e sistemas internos, reduzindo recorrência de chamados.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STACK ============ -->
+  <section class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="chip"><span class="led"></span> Ferramentas</span>
+        <h2>Stack técnica</h2>
+      </div>
+      <div class="stacks">
+        <div class="sgroup">
+          <h4>Frontend</h4>
+          <div class="tags"><span>React</span><span>TypeScript</span><span>JavaScript</span><span>Tailwind</span><span>Vite</span><span>Flutter / Dart</span></div>
+        </div>
+        <div class="sgroup">
+          <h4>Backend &amp; APIs</h4>
+          <div class="tags"><span>Node.js</span><span>.NET 8</span><span>ASP.NET Core</span><span>C#</span><span>REST</span><span>Webhooks</span></div>
+        </div>
+        <div class="sgroup">
+          <h4>Dados</h4>
+          <div class="tags"><span>PostgreSQL</span><span>Supabase</span><span>Firebase</span><span>RLS</span><span>SQL</span></div>
+        </div>
+        <div class="sgroup">
+          <h4>DevOps &amp; Cloud</h4>
+          <div class="tags"><span>GCP</span><span>Docker</span><span>GitHub Actions</span><span>Grafana</span><span>Bash</span><span>Linux</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="chip"><span class="led"></span> Formação</span>
+        <h2>Educação &amp; certificações</h2>
+      </div>
+      <div class="edu">
+        <div class="row">
+          <div><div class="t">Análise e Desenvolvimento de Sistemas</div><div class="s">Descomplica Faculdade Digital · em andamento</div></div>
+          <div class="y">2024 — 2026</div>
+        </div>
+      </div>
+      <div class="certs">
+        <span>DevOps Strategist</span>
+        <span>Full Cycle Developer</span>
+        <span>Full Stack Developer</span>
+        <span>Backend Developer</span>
+        <span>FrontEnd Developer</span>
+        <span>Object-Oriented Developer</span>
+        <span>Web Moderno c/ JS — Udemy</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contato" class="contact reveal">
+    <div class="wrap">
+      <span class="chip" style="margin-bottom:18px;"><span class="led"></span> Disponível para novos projetos</span>
+      <h2>Vamos conversar?</h2>
+      <p>Aberto a oportunidades remotas. Se tiver uma ideia ou uma vaga, é só chamar.</p>
+      <div class="cta-row">
+        <a class="cta primary" href="mailto:italoafr1@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          italoafr1@gmail.com
+        </a>
+        <a class="cta line" href="https://www.linkedin.com/in/italoafr/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0 0-5zM3 9.5h4V21H3zM9 9.5h3.8v1.57h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.6 4.78 5.97V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.32-1.96 2.69V21H9z"/></svg>
+          LinkedIn
+        </a>
+        <a class="cta line" href="https://github.com/italo-afr" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.22-3.37-1.22-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.36 1.12 2.94.85.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.27 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div>Ítalo de Amorim Freire · Serra Negra, SP</div>
+      <div class="mono" style="margin-top:6px;">feito com HTML, CSS &amp; JavaScript · © 2026</div>
+    </div>
+  </footer>
+
+<script>
+  // Accordion
+  document.querySelectorAll('.xp-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.xp-item');
+      var panel = item.querySelector('.xp-panel');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.xp-item').forEach(function(i){
+        i.classList.remove('open');
+        i.querySelector('.xp-panel').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+  // open the first panel on load
+  (function(){
+    var first = document.querySelector('.xp-item.open .xp-panel');
+    if(first){ first.style.maxHeight = first.scrollHeight + 'px'; }
+  })();
+
+  // Scroll reveal
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
+    }, {threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
 </body>
 </html>
